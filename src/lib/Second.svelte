@@ -356,6 +356,10 @@
 			grid-template-columns: 1fr max-content;
 			gap: 1.25rem;
 			animation: selectedSlide 1.25s;
+
+			@include app.media('sm') {
+				animation: none;
+			}
 		}
 
 		@include app.media('sm') {
