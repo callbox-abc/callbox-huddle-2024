@@ -1,0 +1,22 @@
+@use './breakpoints' as *;
+@use './media' as *;
+
+@mixin container($max: 'xl', $center: true) {
+  $max-width: map-get($breakpoints, $max);
+  @if not $max-width {
+    $max-width: map-get($breakpoints, 'xl');
+  }
+
+  @each $name, $width in $breakpoints {
+    @if $width <= $max-width {
+      @include media($name, true) using ($bp) {
+        max-width: $bp;
+      }
+    }
+  }
+
+  @if $center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
