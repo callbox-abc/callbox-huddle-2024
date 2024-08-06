@@ -1,4 +1,6 @@
 <script>
+	import { Application } from '@splinetool/runtime';
+
 	const sessions = [
 		{
 			id: 'session1',
@@ -77,6 +79,11 @@
 	let selectedSession = $derived(sessions.find(({ id }) => id === selected.id));
 
 	$effect(() => {
+		const canvas = document.getElementById('robot2');
+		const app = new Application(canvas);
+
+		app.load('https://prod.spline.design/CqNUOe6JP1zlcC07/scene.splinecode');
+
 		setInterval(() => {
 			sessionCurrentIndex = (sessionCurrentIndex + 1) % sessions.length;
 		}, 10000);
@@ -87,6 +94,7 @@
 	<div class="title-wrapper">
 		<div class="title">Sessions in Store for You</div>
 	</div>
+	<canvas class="title-img" id="robot2"></canvas>
 
 	<div class="content-wrapper">
 		<div class="session-and-line">
@@ -267,12 +275,28 @@
 	@use '../styles/app';
 
 	.second-wrapper {
+		position: relative;
+		overflow: hidden;
 		padding: 3.75rem 0 0;
 
 		@include app.media('sm') {
 			padding: 8rem 0 0;
 			max-width: 1600px;
 			margin: 0 auto;
+		}
+	}
+
+	.title-img {
+		position: absolute;
+		top: 25%;
+		left: 0%;
+		z-index: 9;
+		height: 750px;
+
+		@include app.media('sm') {
+			top: 0%;
+			left: 0%;
+			height: 1000px;
 		}
 	}
 
