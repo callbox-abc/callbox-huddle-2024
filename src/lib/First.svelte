@@ -28,7 +28,8 @@
 	$effect(() => {
 		const canvas = document.getElementById('robot');
 		const app = new Application(canvas);
-		app.load('https://prod.spline.design/tiMmGarZzlhXo0Ke/scene.splinecode');
+
+		app.load('https://prod.spline.design/6sCG-M77ZdqpW3hX/scene.splinecode');
 
 		setInterval(() => {
 			animationClass = 'exit';
@@ -46,7 +47,7 @@
 		<div class="title-inner">
 			<div class="title top">VIRTUAL EVENT</div>
 			<!-- <img class="title-img" src="/vr-hero.png" alt="virtual hero" height="950" /> -->
-			<canvas class="title-img" id="robot" height="1000"></canvas>
+			<canvas class="title-img" id="robot"></canvas>
 
 			<div class="title bottom">ACROSS THE GLOBE</div>
 
@@ -120,9 +121,9 @@
 		height: 750px;
 
 		@include app.media('sm') {
-			top: 10%;
-			left: 30%;
-			height: 950px;
+			top: 0%;
+			left: 0%;
+			height: 1000px;
 		}
 	}
 
