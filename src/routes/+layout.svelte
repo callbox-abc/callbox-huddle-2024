@@ -1,4 +1,5 @@
 <script>
+	import { Application } from '@splinetool/runtime';
 	import Footer from '../lib/Footer.svelte';
 	import Header from '../lib/Header.svelte';
 	import '../styles/global.scss';
@@ -13,6 +14,12 @@
 	let stuff = $derived(stuffs);
 	let route = $derived($page.url);
 	let { children } = $props();
+
+	// $effect(() => {
+	// 	let canvas = document.getElementById('hero-bg');
+	// 	const app = new Application(canvas);
+	// 	app.load('https://prod.spline.design/kRRIPW06AgfzPJIf/scene.splinecode');
+	// });
 </script>
 
 <svelte:head>
@@ -35,19 +42,31 @@
 	<link rel="canonical" href={route} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Barlow&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@500&family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap"
-		rel="stylesheet"
-	/>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-	/>
 	<script src="https://use.fontawesome.com/caf87cdd69.js"></script>
+	<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
 </svelte:head>
 
 <main>
-	<Header />
-	{@render children()}
-	<Footer />
+	<spline-viewer class="hero-bg" url="/hero_bg.spline"></spline-viewer>
+	<div class="container">
+		<Header />
+		{@render children()}
+		<Footer />
+	</div>
 </main>
+
+<style lang="scss">
+	main {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero-bg {
+		position: absolute;
+		top: 0%;
+	}
+
+	.container {
+		position: relative;
+	}
+</style>

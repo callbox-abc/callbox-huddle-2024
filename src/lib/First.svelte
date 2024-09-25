@@ -1,6 +1,4 @@
 <script>
-	import { Application } from '@splinetool/runtime';
-
 	const contents = [
 		{
 			id: 'content2',
@@ -26,11 +24,6 @@
 	let animationClass = $state('enter');
 
 	$effect(() => {
-		const canvas = document.getElementById('robot');
-		const app = new Application(canvas);
-
-		app.load('https://prod.spline.design/6sCG-M77ZdqpW3hX/scene.splinecode');
-
 		setInterval(() => {
 			animationClass = 'exit';
 
@@ -46,8 +39,6 @@
 	<div class="title-wrapper">
 		<div class="title-inner">
 			<div class="title top">VIRTUAL EVENT</div>
-			<!-- <img class="title-img" src="/vr-hero.png" alt="virtual hero" height="950" /> -->
-			<canvas class="title-img" id="robot"></canvas>
 
 			<div class="title bottom">ACROSS THE GLOBE</div>
 

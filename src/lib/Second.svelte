@@ -1,6 +1,4 @@
 <script>
-	import { Application } from '@splinetool/runtime';
-
 	const sessions = [
 		{
 			id: 'session1',
@@ -79,11 +77,6 @@
 	let selectedSession = $derived(sessions.find(({ id }) => id === selected.id));
 
 	$effect(() => {
-		const canvas = document.getElementById('robot2');
-		const app = new Application(canvas);
-
-		app.load('https://prod.spline.design/CqNUOe6JP1zlcC07/scene.splinecode');
-
 		setInterval(() => {
 			sessionCurrentIndex = (sessionCurrentIndex + 1) % sessions.length;
 		}, 10000);
@@ -94,7 +87,6 @@
 	<div class="title-wrapper">
 		<div class="title">Sessions in Store for You</div>
 	</div>
-	<canvas class="title-img" id="robot2"></canvas>
 
 	<div class="content-wrapper">
 		<div class="session-and-line">
@@ -122,7 +114,7 @@
 				{#each sessions as session, i (session.id)}
 					<div class="line" class:selectedline={session.id === selectedSession.id}></div>
 				{/each}
-				{#if selectedSession?.id === 'session1'}
+				<!-- {#if selectedSession?.id === 'session1'}
 					<svg
 						width="1650"
 						height="500"
@@ -242,7 +234,7 @@
 							filter="url(#blurFilterOne)"
 						/>
 					</svg>
-				{/if}
+				{/if} -->
 			</div>
 		</div>
 		<div class="selected-wrapper">

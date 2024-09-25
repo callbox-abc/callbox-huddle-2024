@@ -4,48 +4,55 @@
 	import Second from '../lib/Second.svelte';
 	import Third from '../lib/Third.svelte';
 	import Timeline from '../lib/Timeline.svelte';
-
-	// let { data } = $props();
 </script>
 
-<Hero />
+<div class="main-wrapper">
+	<Hero />
 
-<div class="first-section">
-	<div class="svg-wrapper">
-		<svg
-			width="1900"
-			height="1900"
-			viewBox="0 0 1500 1500"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			class="branch-bg-gradientcolor"
-		>
-			<defs>
-				<filter id="blurFilterOne" x="-20" y="-20" width="435" height="195">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="75" />
-				</filter>
-			</defs>
-			<!-- <circle cx="600" cy="680" r="300" fill="#9568c3" filter="url(#blurFilterOne)" /> -->
-			<!-- <circle cx="205" cy="600" r="275" fill="#9568c3" filter="url(#blurFilterOne)" /> -->
-			<!-- <circle cx="1150" cy="700" r="285" fill="#46a8c3" filter="url(#blurFilterOne)" /> -->
-			<ellipse cx="205" cy="550" rx="720" ry="225" fill="#9568c3" filter="url(#blurFilterOne)" />
-			<ellipse cx="1200" cy="625" rx="450" ry="225" fill="#46a8c3" filter="url(#blurFilterOne)" />
-		</svg>
+	<div class="first-section">
+		<div class="svg-wrapper">
+			<svg
+				width="1900"
+				height="1900"
+				viewBox="0 0 1500 1500"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				class="branch-bg-gradientcolor"
+			>
+				<defs>
+					<filter id="blurFilterOne" x="-20" y="-20" width="435" height="195">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="75" />
+					</filter>
+				</defs>
+				<!-- <circle cx="600" cy="680" r="300" fill="#9568c3" filter="url(#blurFilterOne)" /> -->
+				<!-- <circle cx="205" cy="600" r="275" fill="#9568c3" filter="url(#blurFilterOne)" /> -->
+				<!-- <circle cx="1150" cy="700" r="285" fill="#46a8c3" filter="url(#blurFilterOne)" /> -->
+				<ellipse cx="205" cy="550" rx="720" ry="225" fill="#9568c3" filter="url(#blurFilterOne)" />
+				<ellipse cx="1200" cy="625" rx="450" ry="225" fill="#46a8c3" filter="url(#blurFilterOne)" />
+			</svg>
+		</div>
+
+		<div class="content-wrapper">
+			<First />
+		</div>
 	</div>
 
-	<div class="content-wrapper">
-		<First />
-	</div>
+	<Second />
+
+	<Third />
+
+	<div class="form" id="contact">hello world</div>
 </div>
-
-<Second />
-
-<Third />
 
 <style lang="scss">
 	@use '../styles/app';
 
+	.main-wrapper {
+		position: relative;
+	}
+
 	.first-section {
+		z-index: 9;
 		position: relative;
 		overflow: hidden;
 		max-width: 100%;
