@@ -1,5 +1,5 @@
 <script>
-	import { Application } from '@splinetool/runtime';
+	// import { Application } from '@splinetool/runtime';
 	import Footer from '../lib/Footer.svelte';
 	import Header from '../lib/Header.svelte';
 	import '../styles/global.scss';

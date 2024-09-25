@@ -1,14 +1,14 @@
 <script>
-	import { fromUnixTime } from 'date-fns';
-	import { formatInTimeZone } from 'date-fns-tz';
+	// import { fromUnixTime } from 'date-fns';
+	// import { formatInTimeZone } from 'date-fns-tz';
 
 	let { session, region, watch } = $props();
 
 	let reg = $derived(region === 'nam' ? 'America/New_York' : 'Singapore');
 
-	let sessionDate = $derived(
-		formatInTimeZone(fromUnixTime(session?.date.seconds), reg, 'MMMM dd, yyyy @ p zzz')
-	);
+	// let sessionDate = $derived(
+	// 	formatInTimeZone(fromUnixTime(session?.date.seconds), reg, 'MMMM dd, yyyy @ p zzz')
+	// );
 </script>
 
 <div class="content-container">
@@ -22,7 +22,7 @@
 			<div class="excerpt">
 				{session?.excerpt}
 			</div>
-			<div class="date">{sessionDate}</div>
+			<!-- <div class="date">{sessionDate}</div> -->
 			<div class="btn-wrapper">
 				<a class="reg-btn" href="watch">Watch on-demand</a>
 			</div>
