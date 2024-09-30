@@ -1,7 +1,7 @@
 <script>
-	// import { Application } from '@splinetool/runtime';
 	import Footer from '../lib/Footer.svelte';
 	import Header from '../lib/Header.svelte';
+
 	import '../styles/global.scss';
 	import { page } from '$app/stores';
 
@@ -14,18 +14,6 @@
 	let stuff = $derived(stuffs);
 	let route = $derived($page.url);
 	let { children } = $props();
-
-	// $effect(() => {
-	// 	let canvas = document.getElementById('hero-bg');
-	// 	const app = new Application(canvas);
-	// 	app.load('https://prod.spline.design/kRRIPW06AgfzPJIf/scene.splinecode');
-	// });
-	$effect(() => {
-		const logo = document.querySelector('#hero-bg').shadowRoot.querySelector('#logo');
-		if (logo) {
-			logo.style.display = 'none';
-		}
-	});
 </script>
 
 <svelte:head>
@@ -49,30 +37,19 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<script src="https://use.fontawesome.com/caf87cdd69.js"></script>
-	<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
 </svelte:head>
 
 <main>
-	<spline-viewer id="hero-bg" class="hero-bg" url="/hero_bg.spline"></spline-viewer>
-	<div class="container">
-		<Header />
-		{@render children()}
-		<Footer />
-	</div>
+	<Header />
+	{@render children()}
+	<Footer />
 </main>
 
 <style lang="scss">
+	@use '../styles/app';
+
 	main {
 		position: relative;
-		overflow: hidden;
-	}
-
-	.hero-bg {
-		position: absolute;
-		top: 0%;
-	}
-
-	.container {
-		position: relative;
+		// overflow: hidden;
 	}
 </style>
