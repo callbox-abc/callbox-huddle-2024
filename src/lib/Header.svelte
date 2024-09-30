@@ -14,7 +14,9 @@
 		<div class="container">
 			<header class="container-header">
 				<div class="logo">
-					<a href="/"><img src="/huddle-logo.svg" alt="Logo" width="160" height="85" /></a>
+					<a href="/"
+						><img src="/huddle-logo.svg" alt="Logo" width="160" height="85" loading="lazy" /></a
+					>
 				</div>
 				<!-- {#if route !== '/'}
 					<div class="meet-btn-container">

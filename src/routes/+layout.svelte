@@ -20,6 +20,12 @@
 	// 	const app = new Application(canvas);
 	// 	app.load('https://prod.spline.design/kRRIPW06AgfzPJIf/scene.splinecode');
 	// });
+	$effect(() => {
+		const logo = document.querySelector('#hero-bg').shadowRoot.querySelector('#logo');
+		if (logo) {
+			logo.style.display = 'none';
+		}
+	});
 </script>
 
 <svelte:head>
@@ -47,7 +53,7 @@
 </svelte:head>
 
 <main>
-	<spline-viewer class="hero-bg" url="/hero_bg.spline"></spline-viewer>
+	<spline-viewer id="hero-bg" class="hero-bg" url="/hero_bg.spline"></spline-viewer>
 	<div class="container">
 		<Header />
 		{@render children()}
