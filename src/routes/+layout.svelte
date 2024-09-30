@@ -4,6 +4,8 @@
 
 	import '../styles/global.scss';
 	import { page } from '$app/stores';
+	import { inject } from '@vercel/analytics';
+	import { dev } from '$app/environment';
 
 	const stuffs = {
 		title: `Callbox Huddle 2023`,
@@ -14,6 +16,12 @@
 	let stuff = $derived(stuffs);
 	let route = $derived($page.url);
 	let { children } = $props();
+
+	inject({
+		mode: dev ? 'development' : 'production'
+	});
+
+	$inspect(dev);
 </script>
 
 <svelte:head>
